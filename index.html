@@ -1,0 +1,89 @@
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>shaper</title>
+</head>
+<body>
+	<!-- <div id='noni'></div> -->
+	<!-- <div id='rabbit'></div> -->
+	<div id='circles'>
+		<div class='circle_base' id='music'><div class='text'>Music</div></div>
+		<div class='circle_base' id='videos'><div class='text'>Videos</div></div>
+		<div class='circle_base' id='books'><div class='text'>Books</div></div>
+		<div class='circle_base' id='words'><div class='text'>Words</div></div>
+		<div class='circle_base' id='code'><div class='text'>Code</div></div>
+	</div>
+	<script>
+		function openInNewTab(url) {
+		 	var win = window.open(url, '_blank');
+		 	win.focus();
+		}
+		document.getElementById('music').onclick = function() {
+			openInNewTab('https://somethoughts.bandcamp.com/');
+		}
+		document.getElementById('videos').onclick = function() {
+			openInNewTab('https://www.youtube.com/user/elliottwobler/videos?view_as=subscriber');
+		}
+		document.getElementById('books').onclick = function() {
+			openInNewTab('https://wobkat.github.io/books/');
+		}
+		document.getElementById('words').onclick = function() {
+			openInNewTab('https://www.youtube.com/watch?v=dLQQfa474zA/');
+		}
+		document.getElementById('code').onclick = function() {
+			openInNewTab('https://github.com/wobkat/');
+		}
+		var lastTimestamp = 0;
+		var prevVals = {
+			'books': {
+				'left': 40,
+				'top': 15
+			},
+			'code': {
+				'left': 25,
+				'top': 30
+			},
+			'music': {
+				'left': 55,
+				'top': 30
+			},
+			'videos': {
+				'left': 15,
+				'top': 55
+			},
+			'words': {
+				'left': 65,
+				'top': 55
+			}
+		}
+		function runEverytime(timestamp) {
+			if (timestamp - lastTimestamp > 500) {
+				var portals = Object.keys(prevVals);
+				for (var i in portals) {
+					var ident = portals[i];
+					var vals = prevVals[ident];
+					var el = document.getElementById(ident);
+					if (Math.floor(timestamp) % 2 == 0) {
+						// POSITIVE
+						var left = vals.left + (Math.random() / 5);
+						el.style.left = left + '%';
+						var top = vals.top + (Math.random() / 5);
+						el.style.top = top + '%';
+					} else {
+						// NEGATIVE
+						var left = vals.left - (Math.random() / 5);
+						el.style.left = left + '%';
+						var top = vals.top - (Math.random() / 5);
+						el.style.top = top + '%';
+					}
+					prevVals[ident].left = left;
+					prevVals[ident].top = top;
+				}
+				lastTimestamp = timestamp;
+			}
+			// window.requestAnimationFrame(runEverytime);
+		}
+		runEverytime(501);
+	</script>
+</body>
