@@ -112,6 +112,11 @@ body {
   background-image: linear-gradient(to bottom right, rgba(100,0,250,0.2), rgba(255,0,10,0.2));
 }
 
+#photos {
+  animation: shakeF 8s cubic-bezier(.46,.07,.19,.97) both infinite;
+  background-image: linear-gradient(to bottom right, rgba(190,190,50,0.2), rgba(100,80,90,0.2));
+}
+
 .text {
 	margin-top: 35%;
     -webkit-touch-callout: none;
@@ -205,5 +210,22 @@ body {
   40%, 60% {
     transform: translate3d(-5px, 3px, 7px);
     opacity: 0.4;
+  }
+}
+@keyframes shakeF {
+  10%, 90% {
+    transform: translate3d(3px, 2px, -6px);
+    opacity: 0;
+  }
+  20%, 80% {
+    transform: translate3d(6px, -4px, 8px);
+    opacity: 0.9;
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-7px, 8px, 10px);
+    opacity: 0.4;
+  }
+  40%, 60% {
+    transform: translate3d(4px, 6px, -9px);
   }
 }

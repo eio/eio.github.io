@@ -12,6 +12,7 @@
 		<div class='circle_base' id='videos'><div class='text'>Videos</div></div>
 		<div class='circle_base' id='books'><div class='text'>Books</div></div>
 		<div class='circle_base' id='words'><div class='text'>Words</div></div>
+		<div class='circle_base' id='photos'><div class='text'>Photos</div></div>
 		<div class='circle_base' id='code'><div class='text'>Code</div></div>
 	</div>
 	<script>
@@ -34,17 +35,24 @@
 		document.getElementById('code').onclick = function() {
 			openInNewTab('https://github.com/wobkat/');
 		}
+		document.getElementById('photos').onclick = function() {
+			openInNewTab('https://www.flickr.com/photos/184333151@N04/albums/72157710752311686');
+		}
 		var lastTimestamp = 0;
 		var prevVals = {
 			'books': {
-				'left': 40,
+				'left': 15,
+				'top': 15
+			},
+			'music': {
+				'left': 65,
 				'top': 15
 			},
 			'code': {
 				'left': 25,
 				'top': 35
 			},
-			'music': {
+			'photos': {
 				'left': 55,
 				'top': 35
 			},
