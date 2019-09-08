@@ -9,10 +9,10 @@
 	<!-- <div id='rabbit'></div> -->
 	<div id='circles'>
 		<div class='circle_base' id='music'><div class='text'>Music</div></div>
-		<div class='circle_base' id='videos'><div class='text'>Videos</div></div>
+		<div class='circle_base' id='videos'><div class='text'>Video</div></div>
 		<div class='circle_base' id='books'><div class='text'>Books</div></div>
 		<div class='circle_base' id='words'><div class='text'>Words</div></div>
-		<div class='circle_base' id='photos'><div class='text'>Photos</div></div>
+		<div class='circle_base' id='photos'><div class='text'>Photo</div></div>
 		<div class='circle_base' id='code'><div class='text'>Code</div></div>
 	</div>
 	<script>
@@ -42,31 +42,31 @@
 		var prevVals = {
 			'books': {
 				'left': 15,
-				'top': 15
+				'top': 10
 			},
 			'music': {
-				'left': 65,
-				'top': 15
+				'left': 60,
+				'top': 10
 			},
 			'code': {
-				'left': 25,
+				'left': 15,
 				'top': 35
 			},
 			'photos': {
-				'left': 55,
+				'left': 60,
 				'top': 35
 			},
 			'videos': {
 				'left': 15,
-				'top': 55
+				'top': 60
 			},
 			'words': {
-				'left': 65,
-				'top': 55
+				'left': 60,
+				'top': 60
 			}
 		}
 		function runEverytime(timestamp) {
-			if (timestamp - lastTimestamp > 500) {
+			if (timestamp - lastTimestamp > 0) {
 				var portals = Object.keys(prevVals);
 				for (var i in portals) {
 					var ident = portals[i];
@@ -74,15 +74,15 @@
 					var el = document.getElementById(ident);
 					if (Math.floor(timestamp) % 2 == 0) {
 						// POSITIVE
-						var left = vals.left + (Math.random() / 5);
+						var left = vals.left + (Math.random() / 100);
 						el.style.left = left + '%';
-						var top = vals.top + (Math.random() / 5);
+						var top = vals.top + (Math.random() / 100);
 						el.style.top = top + '%';
 					} else {
 						// NEGATIVE
-						var left = vals.left - (Math.random() / 5);
+						var left = vals.left - (Math.random() / 100);
 						el.style.left = left + '%';
-						var top = vals.top - (Math.random() / 5);
+						var top = vals.top - (Math.random() / 100);
 						el.style.top = top + '%';
 					}
 					prevVals[ident].left = left;
@@ -92,6 +92,6 @@
 			}
 			// window.requestAnimationFrame(runEverytime);
 		}
-		runEverytime(501);
+		runEverytime(1);
 	</script>
 </body>
