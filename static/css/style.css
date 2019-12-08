@@ -11,7 +11,23 @@ body {
   font-weight: bold;
   text-shadow: 0px 2px 8px #000, 0px 1px 3px #000;
   text-align: center;
+}
+
+body.no_overflow {
   overflow: hidden;
+}
+
+#poetree {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  left: 15%;
+  top: 5%;
+  width: 70%;
+  z-index: -1;
+  text-align: left;
+  font-size: 60%;
+  overflow: scroll;
 }
 
 #noni {
@@ -66,22 +82,22 @@ body {
 }
 
 #icon-music {
-  background-image: url('ixnos/music.svg');
+  background-image: url('../ixnos/music.svg');
 }
 #icon-books {
-  background-image: url('ixnos/books.svg');
+  background-image: url('../ixnos/books.svg');
 }
 #icon-code {
-  background-image: url('ixnos/code.svg');
+  background-image: url('../ixnos/code.svg');
 }
 #icon-micro {
-  background-image: url('ixnos/mic.svg');
+  background-image: url('../ixnos/mic.svg');
 }
 #icon-video {
-  background-image: url('ixnos/video.svg');
+  background-image: url('../ixnos/video.svg');
 }
 #icon-photo {
-  background-image: url('ixnos/photo.svg');
+  background-image: url('../ixnos/photo.svg');
 }
 
 .icon {
