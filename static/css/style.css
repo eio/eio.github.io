@@ -90,6 +90,9 @@ body.no_overflow {
 #icon-code {
   background-image: url('../ixnos/code.svg');
 }
+#icon-pen {
+  background-image: url('../ixnos/pen.svg');
+}
 #icon-micro {
   background-image: url('../ixnos/mic.svg');
 }
