@@ -1,0 +1,97 @@
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no'>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <title>phone home</title>
+</head>
+<body class='no_overflow'>
+	<!-- <div id='noni'></div> -->
+	<!-- <div id='rabbit'></div> -->
+	<div id='circles'>
+		<div class='circle_base' id='music'><div id='icon-music' class='icon'></div></div>
+		<div class='circle_base' id='videos'><div id='icon-video' class='icon'></div></div>
+		<div class='circle_base' id='books'><div id='icon-books' class='icon'></div></div>
+		<div class='circle_base' id='words'><div id='icon-pen' class='icon'></div></div>
+		<div class='circle_base' id='photos'><div id='icon-photo' class='icon'></div></div>
+		<div class='circle_base' id='code'><div id='icon-code' class='icon'></div></div>
+	</div>
+	<script>
+		function openInNewTab(url) {
+		 	var win = window.open(url, '_blank');
+		 	win.focus();
+		}
+		document.getElementById('music').onclick = function() {
+			openInNewTab('https://somethoughts.bandcamp.com/');
+		}
+		document.getElementById('videos').onclick = function() {
+			openInNewTab('https://www.youtube.com/user/elliottwobler/videos?view_as=subscriber');
+		}
+		document.getElementById('books').onclick = function() {
+			openInNewTab('https://eio.github.io/books/');
+		}
+		document.getElementById('words').onclick = function() {
+			openInNewTab('static/html/words.html');
+		}
+		document.getElementById('code').onclick = function() {
+			openInNewTab('https://github.com/eio/');
+		}
+		document.getElementById('photos').onclick = function() {
+			openInNewTab('static/ixnos/treehouse.png');
+		}
+		var lastTimestamp = 0;
+		var prevVals = {
+			'books': {
+				'left': 15,
+				'top': 10
+			},
+			'music': {
+				'left': 60,
+				'top': 10
+			},
+			'code': {
+				'left': 15,
+				'top': 35
+			},
+			'photos': {
+				'left': 60,
+				'top': 35
+			},
+			'videos': {
+				'left': 15,
+				'top': 60
+			},
+			'words': {
+				'left': 60,
+				'top': 60
+			}
+		}
+		function runEverytime(timestamp) {
+			if (timestamp - lastTimestamp > 0) {
+				var portals = Object.keys(prevVals);
+				for (var i in portals) {
+					var ident = portals[i];
+					var vals = prevVals[ident];
+					var el = document.getElementById(ident);
+					if (Math.floor(timestamp) % 2 == 0) {
+						// POSITIVE
+						var left = vals.left + (Math.random() / 100);
+						el.style.left = left + '%';
+						var top = vals.top + (Math.random() / 100);
+						el.style.top = top + '%';
+					} else {
+						// NEGATIVE
+						var left = vals.left - (Math.random() / 100);
+						el.style.left = left + '%';
+						var top = vals.top - (Math.random() / 100);
+						el.style.top = top + '%';
+					}
+					prevVals[ident].left = left;
+					prevVals[ident].top = top;
+				}
+				lastTimestamp = timestamp;
+			}
+			// window.requestAnimationFrame(runEverytime);
+		}
+		runEverytime(1);
+	</script>
+</body>
